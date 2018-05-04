@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSONP</title>
+</head>
+
+<body>
+    <script src="/jquery.min.js"></script>
+    <script>
+        function callback(response) {
+            console.log(response);
+        }
+
+        $.ajax({
+            type: "get",
+            url: "http://127.0.0.1:8686/test",
+            dataType: "jsonp",
+            success: function (response) {
+                console.log(response);
+            }
+        });
+    </script>
+    <script src="http://127.0.0.1:8686/test?callback=callback"></script>
+</body>
+
+</html>
